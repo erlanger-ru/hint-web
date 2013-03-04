@@ -1,0 +1,13 @@
+{ application, hint
+, [ {description, "Master application for HINT search engine"}
+  , {vsn, "1"}
+  , {modules, []}
+  , {registered, []}
+  , {applications, [ kernel
+                   , stdlib
+                   , cowboy
+                   ]
+    }
+  , {mod, {hint_app, []}}
+  , {env, []}
+]}.

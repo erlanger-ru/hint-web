@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<!--[if IE 8]>           <html class="no-js lt-ie9" lang="en"> <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en"> <!--<![endif]-->
+
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width" />
+  <title>HINT Search Engine</title>
+
+  <link rel="stylesheet" href="/assets/css/normalize.css" />
+  <link rel="stylesheet" href="/assets/css/foundation.css" />
+  <link rel="stylesheet" href="/assets/css/main.css" />
+
+  <script src="/assets/js/vendor/custom.modernizr.js"></script>
+
+</head>
+  <body>
+    <div class="row collapse panel radius" id="overview">
+      <div class="small-3 columns">
+        <h1 class="right inline">HINT Overview</h1>
+      </div>
+      <div class="small-1 columns">
+        &nbsp;
+      </div>
+      <div class="small-8 columns">
+        <p>HINT is an <strong>Erlang type search engine</strong>. See information about the project on Github!</p>
+        <ul>
+          <li><a href="https://github.com/Spawnfest2012/HINT">Spawnfest competition repository</a></li>
+          <li><a href="https://github.com/dmitriid/HINT/">Dmitrii 'Mamut' Dimandt's repository</a></li>
+          <li><a href="https://github.com/manpages/HINT/">Jonn Mostovoy's repository</a></li>
+          <li><a href="https://github.com/nekrograve/HINT/">Valery Meleshkin's repository</a></li>
+        </ul>
+      </div>
+    </div>
+
+    <form method="get" action="/" id="search-form">
+      <div class="row collapse">
+        <div class="small-3 columns">
+          <h1 class="right inline">Find me a type:</h1>
+        </div>
+        <div class="small-1 columns">
+          &nbsp;
+        </div>
+        <div class="small-4 columns">
+          <input type="text" id="search" name="q" placeholder="proplists:?(any(), list()) -> any()">
+        </div>
+        <div class="small-1 columns">
+          <input type="submit" class="button prefix" name="search-submit" value="Go" />
+        </div>
+        <div class="small-3 columns">
+          &nbsp;
+        </div>
+      </div>
+    </form>
+
+    <div class="row collapse">
+      <div class="small-3 columns">
+        <h1 class="right inline">Results:</h1>
+      </div>
+      <div class="small-1 columns">
+        &nbsp;
+      </div>
+      <div class="small-8 columns" id="results-table">
+        {{req|default:"None yet. Try searching!"}}
+        <!--table>
+          <tbody>
+            <tr>
+              <td class="gray">1.57</td>
+              <td>proplists:get_all_values/2</td>
+              <td><pre>fun((_,[any()]) -&gt; [any()])</pre></td>
+              <td><a href="http://erlang.org/doc/man/proplists.html#get_all_values-2">Doc</a></td>
+            </tr>
+            <tr>
+              <td class="gray">1.57</td>
+              <td>proplists:get_value/2</td>
+              <td><pre>fun((_,[any()]) -&gt; any())</pre></td>
+              <td><a href="http://erlang.org/doc/man/proplists.html#get_all_values-2">Doc</a></td>
+            </tr>
+            <tr>
+              <td class="gray">1.57</td>
+              <td>proplists:get_bool/2</td>
+              <td><pre>fun((_,maybe_improper_list()) -&gt; boolean())</pre></td>
+              <td><a href="http://erlang.org/doc/man/proplists.html#get_all_values-2">Doc</a></td>
+            </tr>
+            <tr>
+              <td class="gray">1.57</td>
+              <td>proplists:get_all_values/2</td>
+              <td><pre>fun((_,[any()]) -&gt; [any()])</pre></td>
+              <td><a href="http://erlang.org/doc/man/proplists.html#get_all_values-2">Doc</a></td>
+            </tr>
+          </tbody>
+        </table-->
+      </div>
+    </div>
+    <div class="row collapse">
+      <div class="large-6 columns large-centered gray">
+        MIT License, HINT Ignoble Narcissist Team. For Spawnfest2012
+      </div>
+    </div>
+    <script>
+      document.write('<script src=' +
+                              ('__proto__' in {} ? '/assets/js/vendor/zepto' : '/assets/js/vendor/jquery') +
+                              '.js><\/script>')
+      </script>
+
+      <script src="/assets/js/foundation.min.js"></script>
+
+      <script>
+        $(document).foundation();
+      </script>
+  </body>
+</html>

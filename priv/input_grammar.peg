@@ -1,0 +1,48 @@
+mfa             <- module? function? arglist? return? dot?;
+
+module          <- module_name? ":";
+module_name     <- mf_name;
+
+function        <- mf_name;
+
+arglist         <- "(" ws  arguments? ws ")";
+arguments       <- argument (ws "," ws argument)*;
+argument        <- argument_var (ws "|" ws argument_var)*;
+argument_var    <- ((variable "::")? type) / variable;
+
+return          <- ws "->" ws return_list where?;
+return_list     <- return_type (ws "|" ws return_type)*;
+return_type     <- type / variable;
+where           <- ws "where" ws where_arguments;
+where_arguments <- where_argument (ws "," ws where_argument)*;
+where_argument  <- variable ws "::" ws return_list;
+
+
+mf_name         <- ("_" (valid_name / "_")?) / (atom valid_name?);
+valid_name      <- (atom / numeric)+;
+
+variable        <- uppercase (uppercase / valid_name)*;
+
+type            <- range / fun_type / simple_type / nested_type / atom / number / bit_string;
+
+range           <- number ".." number;
+
+fun_type        <- "fun()"  / ("fun(" ws arglist ws "->" ws return_list ")");
+
+simple_type     <- (module_name ":")? atom "()";
+
+nested_type     <- tuple / list;
+tuple           <- ("{" ws arguments? ws "}") / ("tuple(" ws arguments? ws ")");
+list            <- ("[" ws arguments? ws "]") / ("list(" ws arguments? ws ")") / other_list;
+other_list      <- ("improper_list(" ws arguments? ws ")") / ("maybe_improper_list(" ws arguments? ws ")");
+
+bit_string      <- "<<>>" / ("<<_:" numeric+ ">>") / ("<<_:_*" numeric+ ">>") / ("<<_:" numeric+ "," ws "_:_*" numeric+ ">>");
+
+atom            <- [a-z];
+uppercase       <- [A-Z];
+number          <- base / ("-"? numeric+);
+base            <- numeric numeric? "#" (numeric / [a-f])+;
+numeric         <- [0-9];
+
+ws              <- [\s\t]?;
+dot             <- ".";

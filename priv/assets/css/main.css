@@ -1,0 +1,45 @@
+.top-bar h1 {
+    color: #999;
+    padding-left: 1em;
+}
+
+input[type=submit] {
+  padding: 0em;
+}
+
+.gray {
+    color: #999;
+}
+
+ul {
+    margin-left: 2em;
+}
+/*
+div {
+    border: 1px solid gray;
+}
+*/
+#search-form div input {
+    margin-top: 3.7em;
+}
+
+#results-table {
+    margin-left: 0em;
+    padding-left: 0em;
+    margin-top: 1.8em;
+}
+
+h1 {
+    font-weight: normal;
+    font-size: 2.4em;
+    color: #444;
+}
+
+h1.right {
+    text-align: right;
+    margin-right: 0em;
+}
+
+#overview {
+    padding: 0em;
+}
